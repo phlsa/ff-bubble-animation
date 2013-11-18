@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Pageload prototype</title>
+  <link rel="stylesheet" type="text/css" href="./css/main.css">
+  <script type="text/javascript" src="./js/jquery.js"></script>
+  <script type="text/javascript" src="./js/underscore.js"></script>
+  <script type="text/javascript" src="./js/app.js"></script>
+</head>
+<body>
+  <div class="browser-window">
+    <div class="content">
+      <div class="page1">
+        <div class="loader">
+          <div class="spinner"></div>
+        </div>
+      </div>
+    </div>
+    <div class="bubble-button info">
+      <div class="bubble info collapsed-type-1"></div>
+    </div>
+    <div class="bubble-button downloads">
+      <div class="bubble downloads collapsed-type-1"></div>
+    </div>
+
+    <div class="bubble-button menu">
+      <div class="bubble menu collapsed-type-1"></div>
+    </div>
+  </div>
+
+  <ul>
+    <li id="type-1" class="selected">Type 1</li>
+    <li id="type-2">Type 2</li>
+    <li id="type-3">Type 3</li>
+  </ul>
+
+  <div class="infobar">
+    Try clicking »UX« in the location bar, the downloads button or the menu button
+    <input type="checkbox" class="slo-mo"></input> Slo-mo
+  </div>
+</body>
+</html>
