@@ -1,6 +1,13 @@
 var transitionType = "type-4";
 var sloMoFactor = 1;
 
+var bounceUX = function() {
+	_.delay(function() {
+		$('.ux').addClass('animate');
+		_.delay(function() { $('.ux').removeClass('animate') }, 400 );
+	}, 100);
+}
+
 $( document ).ready( function() {
 
 	$('.bubble-button').click(function( e ) {
@@ -12,8 +19,9 @@ $( document ).ready( function() {
 			if ( !bubble.hasClass('collapsed') && !bubble.hasClass('collapsed-special') ) {
 				bubble.addClass('collapsed-special');
 				_.delay(function() {
-					bubble.removeClass('collapsed-special').addClass('collapsed')
+					bubble.removeClass('collapsed-special').addClass('collapsed');
 				}, 250*sloMoFactor);
+				bounceUX();
 			} else {
 				bubble.removeClass('collapsed collapsed-special');
 			}
@@ -24,12 +32,16 @@ $( document ).ready( function() {
 
 	$('.browser-window').click(function( e ) {
 		var bubble = $('.bubble');
+		var doorhangerOpened = !$('.info').hasClass('collapsed');
 		bubble.addClass('collapsed');
 		if ( transitionType==='type-4' ) {
 			bubble.addClass('collapsed-special');
 			_.delay(function() {
 				bubble.removeClass('collapsed-special').addClass('collapsed')
 			}, 250*sloMoFactor);
+			if (doorhangerOpened ) {
+				bounceUX();
+			}
 		}
 	});
 
