@@ -149,5 +149,10 @@ li.selected {
 }
 
 .type-4 .bubble {
-	transition: all .25s cubic-bezier(.6, 2, .75, 1.5);
+	transition-property: transform, opacity;
+	transition-timing-function: cubic-bezier(.6, 1.2, .75, 1.2), ease;
+}
+.type-4 .bubble.collapsed {
+	transform: scale( .1 );
+	opacity: 0;
 }
