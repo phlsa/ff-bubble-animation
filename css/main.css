@@ -113,37 +113,41 @@ li.selected {
 	transform-origin: 242px 7px;
 }
 
-.bubble.collapsed-type-1 {
+.type-1 .bubble.collapsed {
 	transform: scale( .1 );
 	opacity: 0;
 }
 
-.bubble.info.collapsed-type-2 {
+.type-2 .bubble.info.collapsed {
 	transform: scale( .1 ) rotate(20deg);
 	opacity: 0;
 }
 
-.bubble.info.collapsed-type-3 {
+.type-3 .bubble.info.collapsed {
 	transform: scale( .1 ) skew(30deg, 20deg);
 	opacity: 0;
 }
 
-.bubble.downloads.collapsed-type-2 {
+.type-2 .bubble.downloads.collapsed {
 	transform: scale( .1 ) rotate(-20deg);
 	opacity: 0;
 }
 
-.bubble.downloads.collapsed-type-3 {
+.type-3 .bubble.downloads.collapsed {
 	transform: scale( .1 ) skew(-30deg, -20deg);
 	opacity: 0;
 }
 
-.bubble.menu.collapsed-type-2 {
+.type-2 .bubble.menu.collapsed {
 	transform: scale( .1 ) rotate(-20deg);
 	opacity: 0;
 }
 
-.bubble.menu.collapsed-type-3 {
+.type-3 .bubble.menu {
 	transform: scale( .1 ) skew(-30deg, -20deg);
 	opacity: 0;
+}
+
+.type-4 .bubble {
+	transition: all .25s cubic-bezier(.6, 2, .75, 1.5);
 }

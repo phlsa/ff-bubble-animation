@@ -4,21 +4,21 @@ $( document ).ready( function() {
 
 	$('.bubble-button').click(function( e ) {
 		e.stopPropagation();
-		$(e.currentTarget).find('.bubble').toggleClass('collapsed-' + transitionType);
+		$(e.currentTarget).find('.bubble').toggleClass('collapsed');
 	});
 
 	$('.browser-window').click(function( e ) {
-		$('.bubble').addClass('collapsed-' + transitionType);
+		$('.bubble').addClass('collapsed');
 	});
 
 	$('li').click(function( e ) {
-		$('.bubble').removeClass('collapsed-' + transitionType);
+		$('.browser-window').removeClass(transitionType);
 
 		$('li').removeClass('selected');
 		$(e.currentTarget).addClass('selected');
 		transitionType = $(e.currentTarget).attr('id');
 
-		$('.bubble').addClass('collapsed-' + transitionType);
+		$('.browser-window').addClass(transitionType);
 	});
 
 	$('.slo-mo').change(function( e ) {
