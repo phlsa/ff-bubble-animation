@@ -4,11 +4,22 @@ $( document ).ready( function() {
 
 	$('.bubble-button').click(function( e ) {
 		e.stopPropagation();
-		$(e.currentTarget).find('.bubble').toggleClass('collapsed');
+		var bubble = $(e.currentTarget).find('.bubble');
+		bubble.toggleClass('collapsed');
+		_.delay(function() {
+			if ( !bubble.hasClass('collapsed') ) {
+				bubble.addClass('opened');
+			} else {
+				bubble.removeClass('opened');
+			}
+		}, 250);
 	});
 
 	$('.browser-window').click(function( e ) {
 		$('.bubble').addClass('collapsed');
+		_.delay(function() {
+			$('.bubble').removeClass('opened')
+		}, 250);
 	});
 
 	$('li').click(function( e ) {
