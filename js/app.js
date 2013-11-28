@@ -1,4 +1,4 @@
-var transitionType = "type-1";
+var transitionType = "type-4";
 var sloMoFactor = 1;
 
 $( document ).ready( function() {

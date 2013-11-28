@@ -20,11 +20,21 @@ li {
 	margin-right: 20px;
 	padding: 5px;
 	cursor: pointer;
+	transform: scale(0.7)
 }
 
 li.selected {
 	color: #fff;
 	background: #333;
+}
+
+#type-4 {
+	color: #ff7c1b;
+	transform: none;
+}
+#type-4.selected {
+	color: #fff;
+	background: #ff7c1b;
 }
 
 .browser-window {
