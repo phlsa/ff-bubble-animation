@@ -1,25 +1,36 @@
 var transitionType = "type-1";
+var sloMoFactor = 1;
 
 $( document ).ready( function() {
 
 	$('.bubble-button').click(function( e ) {
 		e.stopPropagation();
 		var bubble = $(e.currentTarget).find('.bubble');
-		bubble.toggleClass('collapsed');
-		_.delay(function() {
-			if ( !bubble.hasClass('collapsed') ) {
-				bubble.addClass('opened');
+
+		// Custom stuff for type 4 which is more complicated
+		if ( transitionType==='type-4' ) {
+			if ( !bubble.hasClass('collapsed') && !bubble.hasClass('collapsed-special') ) {
+				bubble.addClass('collapsed-special');
+				_.delay(function() {
+					bubble.removeClass('collapsed-special').addClass('collapsed')
+				}, 250*sloMoFactor);
 			} else {
-				bubble.removeClass('opened');
+				bubble.removeClass('collapsed collapsed-special');
 			}
-		}, 250);
+		} else {
+			_.defer(function() { bubble.toggleClass('collapsed') });
+		}
 	});
 
 	$('.browser-window').click(function( e ) {
-		$('.bubble').addClass('collapsed');
-		_.delay(function() {
-			$('.bubble').removeClass('opened')
-		}, 250);
+		var bubble = $('.bubble');
+		bubble.addClass('collapsed');
+		if ( transitionType==='type-4' ) {
+			bubble.addClass('collapsed-special');
+			_.delay(function() {
+				bubble.removeClass('collapsed-special').addClass('collapsed')
+			}, 250*sloMoFactor);
+		}
 	});
 
 	$('li').click(function( e ) {
@@ -35,8 +46,10 @@ $( document ).ready( function() {
 	$('.slo-mo').change(function( e ) {
 		var elem = $(e.currentTarget);
 		if ( elem.is(':checked') ) {
-			$('.bubble').css({'transition-duration': '2s'});
+			sloMoFactor = 10;
+			$('.bubble').css({'transition-duration': '2.5s'});
 		} else {
+			sloMoFactor = 1;
 			$('.bubble').css({'transition-duration': '.25s'});
 		}
 	});
